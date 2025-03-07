@@ -32,7 +32,7 @@ namespace PROJECT
                 combobox1.DataSource = dt;
                 combobox1.DisplayMember = "coures";
             }
-
+            //(-----Select coures----);
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -51,6 +51,7 @@ namespace PROJECT
             {
                 MessageBox.Show("please Enter values", "PROJECT", MessageBoxButtons.OK);
             }
+            
         }
         private void LoadData()
         {
@@ -60,6 +61,11 @@ namespace PROJECT
             da.Fill(dt);
             dataGridView1.DataSource = dt;
             tr = dt.Rows.Count - 1;
+        }
+
+        private void combobox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            combobox1.Text = "------SELECT COURSE-----";
         }
     }
 }
