@@ -24,8 +24,9 @@ namespace PROJECT
 
         private void butinsert_Click(object sender, EventArgs e)
         {
-        
-                if(txtsnm.Text!=""&&txtmob.Text!="")
+           if (butinsert.Text == "&Save")
+            {
+                if (txtsnm.Text != "" && txtmob.Text != "")
                 {
                     String Sql = "insert into insertnew values('" + txtsnm.Text + "','" + txtmob.Text + "')";
                     SqlDataAdapter da = new SqlDataAdapter(Sql, cn);
@@ -39,7 +40,16 @@ namespace PROJECT
                 {
                     MessageBox.Show("please Enter values", "PROJECT", MessageBoxButtons.OK);
                 }
-         
+           }
+            else
+            {
+                txtsnm.Text = txtmob.Text = String.Empty;
+                txtsnm.Focus();
+                butinsert.Text = "&Save";
+                btnupdate.Enabled = false;
+                btndelete.Enabled = false;
+
+            }
         }
 
         private void Form2_Load(object sender, EventArgs e)
